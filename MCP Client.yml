@@ -1,0 +1,132 @@
+app:
+  description: ''
+  icon: 🤖
+  icon_background: '#FFEAD5'
+  mode: agent-chat
+  name: MCP Client
+  use_icon_as_answer_icon: false
+dependencies:
+- current_identifier: null
+  type: marketplace
+  value:
+    marketplace_plugin_unique_identifier: langgenius/gemini:0.7.2@6e53b92877de2507ce83f2fc32ddf54a9662e4b5ef9e7e5d17bd18153a6485da
+    version: null
+- current_identifier: null
+  type: marketplace
+  value:
+    marketplace_plugin_unique_identifier: junjiem/mcp_sse:0.2.3@ce2b8fa30300474f51da7e7d38543a2d15f4b720aee305e1dad0a8fdf27b9892
+    version: null
+kind: app
+model_config:
+  agent_mode:
+    enabled: true
+    max_iteration: 10
+    prompt: null
+    strategy: function_call
+    tools:
+    - enabled: true
+      isDeleted: false
+      notAuthor: false
+      provider_id: junjiem/mcp_sse/mcp_sse
+      provider_name: junjiem/mcp_sse/mcp_sse
+      provider_type: builtin
+      tool_label: Fetch MCP Tools
+      tool_name: mcp_sse_list_tools
+      tool_parameters:
+        prompts_as_tools: true
+        resources_as_tools: true
+        servers_config: null
+    - enabled: true
+      isDeleted: false
+      notAuthor: false
+      provider_id: junjiem/mcp_sse/mcp_sse
+      provider_name: junjiem/mcp_sse/mcp_sse
+      provider_type: builtin
+      tool_label: Call MCP Tool
+      tool_name: mcp_sse_call_tool
+      tool_parameters:
+        arguments: null
+        prompts_as_tools: true
+        resources_as_tools: true
+        servers_config: null
+        tool_name: null
+  annotation_reply:
+    enabled: false
+  chat_prompt_config:
+    prompt:
+    - role: system
+      text: ''
+  completion_prompt_config:
+    conversation_histories_role:
+      assistant_prefix: ''
+      user_prefix: ''
+    prompt:
+      text: ''
+  dataset_configs:
+    datasets:
+      datasets: []
+    retrieval_model: multiple
+    top_k: 4
+  dataset_query_variable: ''
+  external_data_tools: []
+  file_upload:
+    allowed_file_extensions:
+    - .JPG
+    - .JPEG
+    - .PNG
+    - .GIF
+    - .WEBP
+    - .SVG
+    - .MP4
+    - .MOV
+    - .MPEG
+    - .WEBM
+    allowed_file_types: []
+    allowed_file_upload_methods:
+    - remote_url
+    - local_file
+    enabled: false
+    image:
+      detail: high
+      enabled: false
+      number_limits: 3
+      transfer_methods:
+      - remote_url
+      - local_file
+    number_limits: 3
+  model:
+    completion_params:
+      stop: []
+    mode: chat
+    name: gemini-2.5-flash
+    provider: langgenius/gemini/google
+  more_like_this:
+    enabled: false
+  opening_statement: ''
+  pre_prompt: "Είσαι ένας βοηθός που μπορεί να χρησιμοποιεί εξωτερικά εργαλεία μέσω\
+    \ MCP,\nχωρίς να γνωρίζει εκ των προτέρων ποια εργαλεία υπάρχουν ή τι πληροφορίες\
+    \ παρέχουν.\n\nΌταν λαμβάνεις ένα ερώτημα:\n1. Αν το ερώτημα περιέχει περισσότερα\
+    \ από ένα ζητούμενα,\n   χώρισέ το νοητά σε επιμέρους αιτήματα\n2. Για κάθε επιμέρους\
+    \ αίτημα, εξέτασε αν μπορεί να απαντηθεί μέσω εργαλείων\n3. Αν χρησιμοποιήσεις\
+    \ εργαλείο, βασίσου ΑΠΟΚΛΕΙΣΤΙΚΑ στο αποτέλεσμα που επιστρέφει\n4. Μετέτρεψε τα\
+    \ αποτελέσματα σε πλήρεις, κατανοητές προτάσεις\n5. Μην απαντάς μονολεκτικά και\
+    \ μην προσθέτεις πληροφορίες που δεν παρέχονται από τα εργαλεία\n\nΑν κάποιο μέρος\
+    \ του ερωτήματος δεν μπορεί να απαντηθεί,\nεξήγησε ποιο μέρος και γιατί.\n"
+  prompt_type: simple
+  retriever_resource:
+    enabled: true
+  sensitive_word_avoidance:
+    configs: []
+    enabled: false
+    type: ''
+  speech_to_text:
+    enabled: false
+  suggested_questions: []
+  suggested_questions_after_answer:
+    enabled: false
+  text_to_speech:
+    enabled: false
+    language: ''
+    voice: ''
+  user_input_form: []
+version: 0.5.0
